@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   # Authentication routes
-  get "admin", to: "sessions#new"
+  get "session", to: "sessions#new"
   post "sessions", to: "sessions#create"
   delete "sessions", to: "sessions#destroy"
 
