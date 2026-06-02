@@ -24,8 +24,24 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <!-- Flash Messages -->
+    <% if notice %>
+      <div class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in-down">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in-down">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <% if content_for?(:full_screen) %>
       <%= yield %>
-    </main>
+    <% else %>
+      <main class="container mx-auto mt-28 px-5 flex">
+        <%= yield %>
+      </main>
+    <% end %>
   </body>
 </html>
