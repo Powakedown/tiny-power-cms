@@ -1,0 +1,2 @@
+module SectionLayoutsHelper
+end

@@ -1,0 +1,169 @@
+/* =========================================================
+   Section Layout Picker
+   ========================================================= */
+
+/* ── Grid container ──────────────────────────────────────── */
+.layout-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* ── Individual card ─────────────────────────────────────── */
+.layout-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.75rem 0.625rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  text-align: left;
+  font: inherit;
+  gap: 0.625rem;
+}
+
+.layout-card:hover {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+}
+
+.layout-card:active {
+  transform: translateY(0);
+}
+
+.layout-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ── Placeholder atoms ───────────────────────────────────── */
+.lp-ph {
+  display: block;
+  background: #e5e7eb;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Sizes */
+.lp-ph--title      { height: 10px; width: 65%; }
+.lp-ph--title-sm   { height: 8px;  width: 55%; }
+.lp-ph--subtitle   { height: 7px;  width: 45%; }
+.lp-ph--btn        { height: 12px; width: 36%; border-radius: 6px; }
+.lp-ph--line       { height: 5px;  width: 100%; }
+.lp-ph--img        { height: 72px; width: 100%; border-radius: 4px; }
+.lp-ph--img-sm     { height: 48px; }
+.lp-ph--banner     { height: 56px; width: 100%; border-radius: 4px; }
+.lp-ph--video      { height: 62px; width: 100%; border-radius: 4px; }
+.lp-ph--icon       { height: 18px; width: 18px; border-radius: 50%; }
+.lp-ph--avatar     { height: 18px; width: 18px; border-radius: 50%; }
+.lp-ph--quote      { height: 8px;  width: 10px; border-radius: 2px; }
+.lp-ph--stat-num   { height: 14px; width: 40%; border-radius: 3px; }
+.lp-ph--chevron    { height: 7px;  width: 7px;  border-radius: 2px; flex-shrink: 0; }
+
+/* Spacing helpers */
+.lp-mt-xxs { margin-top: 4px;  }
+.lp-mt-xs  { margin-top: 6px;  }
+.lp-mt-sm  { margin-top: 10px; }
+.lp-mb-sm  { margin-bottom: 10px; }
+.lp-mx-auto { margin-left: auto; margin-right: auto; }
+
+/* ── Layout helpers ──────────────────────────────────────── */
+
+/* Generic column grid */
+.lp-cols {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.lp-cols--2          { grid-template-columns: 1fr 1fr; }
+.lp-cols--3          { grid-template-columns: 1fr 1fr 1fr; }
+.lp-cols--4          { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.lp-cols--wide-narrow { grid-template-columns: 2fr 1fr; }
+
+.lp-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.lp-col--wide  { /* inherits from grid */ }
+.lp-col--narrow { /* inherits from grid */ }
+
+/* ── Specific section variants ───────────────────────────── */
+
+/* 1 — Hero */
+.lp-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+}
+
+/* 4 — Banner */
+.lp-banner { width: 100%; }
+
+/* 5 — Feature cards */
+.lp-feature-card {
+  align-items: center;
+  background: #f9fafb;
+  border-radius: 4px;
+  padding: 6px 4px;
+}
+
+/* 6 — Quote */
+.lp-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0;
+}
+
+/* 8 — Stats */
+.lp-stat {
+  align-items: center;
+  padding: 4px 0;
+}
+
+/* 10 — FAQ */
+.lp-faq {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.lp-faq-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 4px 0;
+  gap: 4px;
+}
+
+/* 11 — Video */
+.lp-video-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 12 — CTA band */
+.lp-cta-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #6b7280;
+  border-radius: 6px;
+  padding: 10px 8px;
+}
