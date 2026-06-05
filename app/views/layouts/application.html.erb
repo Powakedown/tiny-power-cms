@@ -32,10 +32,14 @@
     <% end %>
 
     <% if user_signed_in? %>
-      <%= link_to "déconnexion",
-            sessions_path,
-            data: { turbo_method: :delete },
-            class: "sign-out-link" %>
+      <span class="sign-out-link">
+        Mode édition
+        <%= link_to "x",
+              sessions_path,
+              title: "Sortir du mode édition",
+              data: { turbo_method: :delete },
+              class: "" %>
+      </span>
     <% end %>
 
     <main>
