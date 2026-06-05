@@ -1,3 +1,5 @@
-<div class="block-base">
-  <%= link_to "+", "#", class: "block-link" %>
-</div>
+<% if policy(:application).update? %>
+  <div class="block-base">
+    <%= link_to "+", "#", class: "block-link" %>
+  </div>
+<% end %>
