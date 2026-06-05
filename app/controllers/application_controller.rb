@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_authentication
-    redirect_to admin_path, alert: "You must sign in first" unless user_signed_in?
+    redirect_to root_path, alert: "You must sign in first" unless user_signed_in?
   end
 end

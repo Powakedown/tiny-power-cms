@@ -1,0 +1,146 @@
+/* =========================================================
+   Session / Authentication Pages
+   ========================================================= */
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Layout */
+.session-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.session-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Card */
+.session-card {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.session-card__header {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  padding: 1.75rem 2rem;
+}
+
+.session-card__title {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.session-card__body {
+  padding: 2rem;
+}
+
+/* Form */
+.session-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.session-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.session-form__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.01em;
+}
+
+.session-form__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.625rem;
+  font-size: 0.9375rem;
+  color: #111827;
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.session-form__input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.session-form__input::placeholder {
+  color: #9ca3af;
+}
+
+.session-form__submit {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.8125rem 1rem;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.session-form__submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.session-form__submit:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+.session-footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Flash messages */
+.flash {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .2rem .5rem;
+  border-radius: 0 0 .2rem .2rem;
+  font-size: .875rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+  white-space: nowrap;
+  animation: flash-lifecycle 5.5s ease forwards;
+  pointer-events: none;
+}
+
+.flash--notice { background: #105e2d; color: #fff; }
+.flash--alert  { background: #ab1919; color: #fff; }
+
+@keyframes flash-lifecycle {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  6%   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  82%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+}
