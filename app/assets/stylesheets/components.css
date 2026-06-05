@@ -1,7 +1,7 @@
 .sign-out-link {
-  position: sticky;
+  position: fixed;
   top: 0;
-  left: 90%;
+  right: 2%;
   padding: .2rem;
   border: none;
   font-size: 1rem;
@@ -10,5 +10,6 @@
   color: white;
   text-decoration: none;
   z-index: 50;
+  width: fit-content;
 }
 

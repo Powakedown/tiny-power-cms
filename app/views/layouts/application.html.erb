@@ -32,9 +32,9 @@
     <% end %>
 
     <% if user_signed_in? %>
-      <%= button_to "déconnexion",
+      <%= link_to "déconnexion",
             sessions_path,
-            method: :delete,
+            data: { turbo_method: :delete },
             class: "sign-out-link" %>
     <% end %>
 

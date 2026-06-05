@@ -131,16 +131,14 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 50;
   white-space: nowrap;
-  animation: flash-lifecycle 5.5s ease forwards;
   pointer-events: none;
+  animation: flash-in 0.2s ease;
 }
 
 .flash--notice { background: #105e2d; color: #fff; }
 .flash--alert  { background: #ab1919; color: #fff; }
 
-@keyframes flash-lifecycle {
-  0%   { opacity: 0; transform: translateX(-50%) translateY(-8px); }
-  6%   { opacity: 1; transform: translateX(-50%) translateY(0); }
-  82%  { opacity: 1; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+@keyframes flash-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
