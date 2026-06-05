@@ -4,12 +4,46 @@
 
 /* ── Grid container ──────────────────────────────────────── */
 .layout-picker {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 1rem 1.75rem;
   box-sizing: border-box;
+}
+
+/* ── Collapse / scroll-up button ─────────────────────────── */
+.layout-picker__collapse {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  color: #6b7280;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  transition: border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  z-index: 1;
+}
+
+.layout-picker__collapse:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+.layout-picker__collapse svg {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 /* ── Individual card ─────────────────────────────────────── */

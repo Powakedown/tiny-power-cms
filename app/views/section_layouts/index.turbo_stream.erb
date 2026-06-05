@@ -1,0 +1,167 @@
+<%= turbo_stream.update "section-layouts" do %>
+  <%# Section layout picker — 12 presets %>
+  <div class="layout-picker">
+
+    <%# 1. Hero — centered text + CTA %>
+    <button class="layout-card" type="button" title="Hero — centré">
+      <div class="lp-hero">
+        <div class="lp-ph lp-ph--title lp-mx-auto"></div>
+        <div class="lp-ph lp-ph--subtitle lp-mx-auto lp-mt-xs"></div>
+        <div class="lp-ph lp-ph--btn lp-mx-auto lp-mt-sm"></div>
+      </div>
+      <span class="layout-card__label">Hero centré</span>
+    </button>
+
+    <%# 2. 2 columns — text left, image right %>
+    <button class="layout-card" type="button" title="Texte gauche, image droite">
+      <div class="lp-cols lp-cols--2">
+        <div class="lp-col">
+          <div class="lp-ph lp-ph--title"></div>
+          <div class="lp-ph lp-ph--subtitle lp-mt-xs"></div>
+          <div class="lp-ph lp-ph--line lp-mt-sm"></div>
+          <div class="lp-ph lp-ph--line lp-mt-xxs"></div>
+          <div class="lp-ph lp-ph--line lp-mt-xxs" style="width:70%"></div>
+        </div>
+        <div class="lp-col">
+          <div class="lp-ph lp-ph--img"></div>
+        </div>
+      </div>
+      <span class="layout-card__label">Texte · Image</span>
+    </button>
+
+    <%# 3. 2 columns — image left, text right %>
+    <button class="layout-card" type="button" title="Image gauche, texte droite">
+      <div class="lp-cols lp-cols--2">
+        <div class="lp-col">
+          <div class="lp-ph lp-ph--img"></div>
+        </div>
+        <div class="lp-col">
+          <div class="lp-ph lp-ph--title"></div>
+          <div class="lp-ph lp-ph--subtitle lp-mt-xs"></div>
+          <div class="lp-ph lp-ph--line lp-mt-sm"></div>
+          <div class="lp-ph lp-ph--line lp-mt-xxs"></div>
+          <div class="lp-ph lp-ph--line lp-mt-xxs" style="width:60%"></div>
+        </div>
+      </div>
+      <span class="layout-card__label">Image · Texte</span>
+    </button>
+
+    <%# 4. Full-width image banner %>
+    <button class="layout-card" type="button" title="Bannière image pleine largeur">
+      <div class="lp-banner">
+        <div class="lp-ph lp-ph--banner"></div>
+      </div>
+      <span class="layout-card__label">Bannière image</span>
+    </button>
+
+    <%# 5. 3 feature cards %>
+    <button class="layout-card" type="button" title="3 cartes fonctionnalités">
+      <div class="lp-cols lp-cols--3">
+        <% 3.times do %>
+          <div class="lp-col lp-feature-card">
+            <div class="lp-ph lp-ph--icon lp-mx-auto"></div>
+            <div class="lp-ph lp-ph--title-sm lp-mx-auto lp-mt-xs"></div>
+            <div class="lp-ph lp-ph--line lp-mt-xs"></div>
+            <div class="lp-ph lp-ph--line lp-mt-xxs" style="width:75%"></div>
+          </div>
+        <% end %>
+      </div>
+      <span class="layout-card__label">3 cartes</span>
+    </button>
+
+    <%# 6. Quote / testimonial — centered %>
+    <button class="layout-card" type="button" title="Citation">
+      <div class="lp-quote">
+        <div class="lp-ph lp-ph--quote lp-mx-auto"></div>
+        <div class="lp-ph lp-ph--line lp-mx-auto lp-mt-sm"></div>
+        <div class="lp-ph lp-ph--line lp-mx-auto lp-mt-xxs" style="width:60%"></div>
+        <div class="lp-ph lp-ph--avatar lp-mx-auto lp-mt-sm"></div>
+      </div>
+      <span class="layout-card__label">Citation</span>
+    </button>
+
+    <%# 7. 2/3 + 1/3 — wide text, narrow aside %>
+    <button class="layout-card" type="button" title="Texte large + aside">
+      <div class="lp-cols lp-cols--wide-narrow">
+        <div class="lp-col lp-col--wide">
+          <div class="lp-ph lp-ph--title"></div>
+          <div class="lp-ph lp-ph--line lp-mt-sm"></div>
+          <div class="lp-ph lp-ph--line lp-mt-xxs"></div>
+          <div class="lp-ph lp-ph--line lp-mt-xxs" style="width:80%"></div>
+          <div class="lp-ph lp-ph--line lp-mt-xxs" style="width:65%"></div>
+        </div>
+        <div class="lp-col lp-col--narrow">
+          <div class="lp-ph lp-ph--img" style="height:100%"></div>
+        </div>
+      </div>
+      <span class="layout-card__label">Large · Aside</span>
+    </button>
+
+    <%# 8. Stats row — 4 numbers %>
+    <button class="layout-card" type="button" title="Statistiques">
+      <div class="lp-cols lp-cols--4">
+        <% 4.times do %>
+          <div class="lp-col lp-stat">
+            <div class="lp-ph lp-ph--stat-num lp-mx-auto"></div>
+            <div class="lp-ph lp-ph--line lp-mx-auto lp-mt-xxs" style="width:55%"></div>
+          </div>
+        <% end %>
+      </div>
+      <span class="layout-card__label">Stats</span>
+    </button>
+
+    <%# 9. Image grid 2×2 %>
+    <button class="layout-card" type="button" title="Grille 2×2 images">
+      <div class="lp-cols lp-cols--2">
+        <% 4.times do %>
+          <div class="lp-col">
+            <div class="lp-ph lp-ph--img lp-ph--img-sm"></div>
+          </div>
+        <% end %>
+      </div>
+      <span class="layout-card__label">Grille 2×2</span>
+    </button>
+
+    <%# 10. FAQ accordion list %>
+    <button class="layout-card" type="button" title="FAQ">
+      <div class="lp-faq">
+        <div class="lp-ph lp-ph--title lp-mx-auto lp-mb-sm"></div>
+        <% 3.times do %>
+          <div class="lp-faq-row">
+            <div class="lp-ph lp-ph--line" style="width:70%"></div>
+            <div class="lp-ph lp-ph--chevron"></div>
+          </div>
+        <% end %>
+      </div>
+      <span class="layout-card__label">FAQ</span>
+    </button>
+
+    <%# 11. Video + caption below %>
+    <button class="layout-card" type="button" title="Vidéo + légende">
+      <div class="lp-video-block">
+        <div class="lp-ph lp-ph--video"></div>
+        <div class="lp-ph lp-ph--line lp-mx-auto lp-mt-xs" style="width:60%"></div>
+      </div>
+      <span class="layout-card__label">Vidéo</span>
+    </button>
+
+    <%# 12. CTA band — dark bg, centered text + button %>
+    <button class="layout-card" type="button" title="Bande CTA">
+      <div class="lp-cta-band">
+        <div class="lp-ph lp-ph--title lp-mx-auto" style="background:rgba(255,255,255,.35)"></div>
+        <div class="lp-ph lp-ph--subtitle lp-mx-auto lp-mt-xs" style="background:rgba(255,255,255,.25)"></div>
+        <div class="lp-ph lp-ph--btn lp-mx-auto lp-mt-sm" style="background:rgba(255,255,255,.9)"></div>
+      </div>
+      <span class="layout-card__label">Bande CTA</span>
+    </button>
+
+    <%= link_to section_layout_path,
+          data: { turbo_method: :delete, turbo_stream: true },
+          class: "layout-picker__collapse",
+          aria: { label: "Fermer" } do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    <% end %>
+  </div>
+<% end %>

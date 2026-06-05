@@ -1,5 +1,10 @@
 <% if policy(:application).update? %>
   <div class="block-base">
-    <%= link_to "+", section_layouts_path, class: "block-link" %>
+    <div id="section-layouts">
+      <%= link_to "+",
+            section_layouts_path,
+            data: { turbo_stream: true },
+            class: "block-link" %>
+    </div>
   </div>
 <% end %>

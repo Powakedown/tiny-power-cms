@@ -1,0 +1,6 @@
+<%= turbo_stream.update "section-layouts" do %>
+  <%= link_to "+",
+        section_layouts_path,
+        data: { turbo_stream: true },
+        class: "block-link" %>
+<% end %>
