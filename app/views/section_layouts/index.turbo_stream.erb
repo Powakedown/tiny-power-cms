@@ -1,78 +1,22 @@
 <%= turbo_stream.update "section-layouts" do %>
-  <%# Section layout picker — 12 presets %>
   <div class="layout-picker">
-
-    <%# 1 %>
-    <button class="layout-card" type="button" title="Hero — centré">
-      <%= layout_preview_hero %>
-      <%= tag.span("Hero centré", class: "layout-card__label") %>
-    </button>
-
-    <%# 2 %>
-    <button class="layout-card" type="button" title="Texte gauche, image droite">
-      <%= layout_preview_text_image %>
-      <%= tag.span("Texte · Image", class: "layout-card__label") %>
-    </button>
-
-    <%# 3 %>
-    <button class="layout-card" type="button" title="Image gauche, texte droite">
-      <%= layout_preview_image_text %>
-      <%= tag.span("Image · Texte", class: "layout-card__label") %>
-    </button>
-
-    <%# 4 %>
-    <button class="layout-card" type="button" title="Bannière image pleine largeur">
-      <%= layout_preview_banner %>
-      <%= tag.span("Bannière", class: "layout-card__label") %>
-    </button>
-
-    <%# 5 %>
-    <button class="layout-card" type="button" title="3 cartes fonctionnalités">
-      <%= layout_preview_three_cards %>
-      <%= tag.span("3 cartes", class: "layout-card__label") %>
-    </button>
-
-    <%# 6 %>
-    <button class="layout-card" type="button" title="Citation">
-      <%= layout_preview_quote %>
-      <%= tag.span("Citation", class: "layout-card__label") %>
-    </button>
-
-    <%# 7 %>
-    <button class="layout-card" type="button" title="Texte large + aside">
-      <%= layout_preview_wide_aside %>
-      <%= tag.span("Large · Aside", class: "layout-card__label") %>
-    </button>
-
-    <%# 8 %>
-    <button class="layout-card" type="button" title="Statistiques">
-      <%= layout_preview_stats %>
-      <%= tag.span("Statistiques", class: "layout-card__label") %>
-    </button>
-
-    <%# 9 %>
-    <button class="layout-card" type="button" title="Grille 2×2 images">
-      <%= layout_preview_grid_2x2 %>
-      <%= tag.span("Grille 2×2", class: "layout-card__label") %>
-    </button>
-
-    <%# 10 %>
-    <button class="layout-card" type="button" title="FAQ">
-      <%= layout_preview_faq %>
-      <%= tag.span("FAQ", class: "layout-card__label") %>
-    </button>
-
-    <%# 11 %>
-    <button class="layout-card" type="button" title="Vidéo + légende">
-      <%= layout_preview_video %>
-      <%= tag.span("Vidéo", class: "layout-card__label") %>
-    </button>
-
-    <%# 12 %>
-    <button class="layout-card" type="button" title="Bande CTA">
-      <%= layout_preview_cta_band %>
-      <%= tag.span("Bande CTA", class: "layout-card__label") %>
-    </button>
+    <% [{ title: "Hero — centré", name: "Hero centré", helper: :layout_preview_hero },
+        { title: "Texte gauche, image droite", name: "Texte · Image", helper: :layout_preview_text_image },
+        { title: "Image gauche, texte droite", name: "Image · Texte", helper: :layout_preview_image_text },
+        { title: "Bannière image pleine largeur", name: "Bannière", helper: :layout_preview_banner },
+        { title: "3 cartes fonctionnalités", name: "3 cartes", helper: :layout_preview_three_cards },
+        { title: "Citation", name: "Citation", helper: :layout_preview_quote },
+        { title: "Texte large + aside", name: "Large · Aside", helper: :layout_preview_wide_aside },
+        { title: "Statistiques", name: "Statistiques", helper: :layout_preview_stats },
+        { title: "Grille 2×2 images", name: "Grille 2×2", helper: :layout_preview_grid_2x2 },
+        { title: "FAQ", name: "FAQ", helper: :layout_preview_faq },
+        { title: "Vidéo + légende", name: "Vidéo", helper: :layout_preview_video },
+        { title: "Bande CTA", name: "Bande CTA", helper: :layout_preview_cta_band }].each do |layout| %>
+          <%= tag.button class: "layout-card", type: "button", title: layout[:title] do %>
+            <%= send(layout[:helper]) %>
+            <%= tag.span(layout[:name], class: "layout-card__label") %>
+          <% end %>
+    <% end %>
 
     <%= link_to section_layout_path,
           data: { turbo_method: :delete, turbo_stream: true },
