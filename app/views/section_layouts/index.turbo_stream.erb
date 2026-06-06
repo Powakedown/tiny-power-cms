@@ -12,7 +12,10 @@
         { title: "FAQ", name: "FAQ", helper: :layout_preview_faq },
         { title: "Vidéo + légende", name: "Vidéo", helper: :layout_preview_video },
         { title: "Bande CTA", name: "Bande CTA", helper: :layout_preview_cta_band }].each do |layout| %>
-          <%= tag.button class: "layout-card", type: "button", title: layout[:title] do %>
+          <%= link_to new_section_path(section: { layout: layout[:helper] }),
+                data: { turbo_stream: true },
+                class: "layout-card",
+                title: layout[:title] do %>
             <%= send(layout[:helper]) %>
             <%= tag.span(layout[:name], class: "layout-card__label") %>
           <% end %>
