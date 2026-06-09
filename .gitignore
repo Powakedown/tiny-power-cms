@@ -41,3 +41,6 @@
 /.claude/
 /_bmad/
 /_bmad-output/
+
+# Ignore Mac system files
+.DS_Store
