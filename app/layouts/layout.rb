@@ -1,5 +1,6 @@
 class Layout
   include ActionView::Helpers
+  include Rails.application.routes.url_helpers
   include SectionLayoutsHelper
 
   def initialize(section)
@@ -23,7 +24,22 @@ class Layout
 
   private
 
-  def asset_path(file_name = "tente.png")
-    ActionController::Base.helpers.asset_path(file_name)
+  def base_class
+    ""
+  end
+
+  def element_text(tag_type, placement)
+    (text = @section.elements.find_by(placement:)&.text) ?
+      tag.send(tag_type, text, class: "#{base_class}-#{placement}") :
+      "".html_safe
+  end
+
+  def element_background_image(placement = "background-image")
+    bg_image = @section.elements.find_by(placement:)&.image
+    bg_url = bg_image&.attached? ? rails_blob_path(bg_image.blob, disposition: "inline", only_path: true) : ""
+
+    bg_url.present? ?
+      tag.div(class: "bg bg-image", style: "background-image: url('#{bg_url}');") :
+      "".html_safe
   end
 end

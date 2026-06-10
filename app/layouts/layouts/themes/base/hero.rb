@@ -1,4 +1,6 @@
 class Layouts::Themes::Base::Hero < Layout
+  BASE_CLASS = "hero"
+
   def preview
     tag.div(class: "lp-hero") do
       ph("lp-ph--title lp-mx-auto") +
@@ -12,7 +14,7 @@ class Layouts::Themes::Base::Hero < Layout
 
   def persisted
     tag.section(class: "creative-hero--section") do
-      tag.div(class: "bg bg-image", style: "background-image: url('#{asset_path}');") +
+      element_background_image +
       tag.div(class: "bg-overlay") +
       tag.div(class: "auto-container") do
         tag.div(class: "content-box") do
@@ -27,9 +29,9 @@ class Layouts::Themes::Base::Hero < Layout
     end
   end
 
-  def element_text(tag_type, placement)
-    (text = @section.elements.find_by(placement:)&.text) ?
-      tag.send(tag_type, text, class: "hero-#{placement}") :
-      "".html_safe
+  private
+
+  def base_class
+    BASE_CLASS
   end
 end
