@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_06_170915) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_10_155138) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "elements", force: :cascade do |t|
+    t.string "background_image"
+    t.datetime "created_at", null: false
+    t.string "image"
+    t.string "placement"
+    t.bigint "section_id", null: false
+    t.string "text"
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_elements_on_section_id"
+  end
 
   create_table "sections", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,4 +43,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_06_170915) do
     t.string "email"
     t.string "password_digest"
   end
+
+  add_foreign_key "elements", "sections"
 end

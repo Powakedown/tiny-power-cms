@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyString
+  placement: MyString
+  section: one
+  image: MyString
+  background_image: MyString
+
+two:
+  text: MyString
+  placement: MyString
+  section: two
+  image: MyString
+  background_image: MyString
