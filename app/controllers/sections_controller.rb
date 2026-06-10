@@ -1,7 +1,8 @@
 class SectionsController < ApplicationController
   def new
-    authorize Section
-    @section = Section.new(section_params)
+    # authorize Section
+    # @section = Section.new(section_params)
+    @section = Section.first
   end
 
   private

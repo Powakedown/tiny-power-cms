@@ -1,5 +1,5 @@
 <%= turbo_stream.update "section-layouts" do %>
-  <div class="section-form-preview">
-    <%= send(@section.layout) %>
+  <div class="section-wrapper layout-base-hero">
+    <%= Layout.new(@section).persisted %>
   </div>
 <% end %>

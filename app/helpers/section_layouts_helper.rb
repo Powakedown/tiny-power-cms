@@ -23,6 +23,17 @@ module SectionLayoutsHelper
     end
   end
 
+  def layout_preview_text_image_form(section)
+    tag.div(class: "lp-cols lp-cols--2 h-100") do
+      tag.div(class: "lp-col h-100") do
+        element_form(section:, placement: "title") +
+        element_form(section:, placement: "subtitle") +
+        element_form(section:, placement: "body")
+      end +
+      element_form(section:, placement: "image")
+    end
+  end
+
   def layout_preview_image_text
     tag.div(class: "lp-cols lp-cols--2") do
       tag.div(ph("lp-ph--img"), class: "lp-col") +
@@ -127,9 +138,11 @@ module SectionLayoutsHelper
   private
 
   # Generates a <div class="lp-ph [classes]"> placeholder element.
-  def ph(classes, style: nil)
+  def ph(classes, style: nil, text: nil)
     opts = { class: "lp-ph #{classes}" }
     opts[:style] = style if style
-    tag.div(**opts)
+    tag.div(**opts) do
+      text
+    end
   end
 end
